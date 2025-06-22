@@ -56,12 +56,24 @@ namespace Grafos.Classes.ListaAdjacencia
         /// <exception cref="ArgumentException">Se o vértice não for encontrado.</exception>
         public Vertice ObterVertice(int id)
         {
-            var vertice = Vertices[id].FirstOrDefault();
+            // First check if the array position exists and is not null
+            if (id >= 0 && id < Vertices.Length && Vertices[id] != null)
+            {
+                var vertice = Vertices[id].FirstOrDefault();
+                if (vertice != null)
+                    return vertice;
+            }
+            
+            // If not found in the array, search through all edges
+            foreach (var aresta in Arestas)
+            {
+                if (aresta.Origem?.Id == id)
+                    return aresta.Origem;
+                if (aresta.Destino?.Id == id)
+                    return aresta.Destino;
+            }
 
-            if (vertice == null)
-                throw new ArgumentException($"Vértice com ID {id} não encontrado.");
-
-            return vertice;
+            throw new ArgumentException($"Vértice com ID {id} não encontrado.");
         }
 
         /// <summary>
@@ -87,7 +99,27 @@ namespace Grafos.Classes.ListaAdjacencia
         /// <returns>Lista com todos os vértices.</returns>
         public List<Vertice> ObterTodosVertices()
         {
-            return Vertices.SelectMany(v => v).ToList();
+            var todosVertices = new List<Vertice>();
+            
+            // Collect all unique vertices from the edges
+            var verticesUnicos = new HashSet<int>();
+            foreach (var aresta in Arestas)
+            {
+                if (aresta.Origem != null)
+                {
+                    verticesUnicos.Add(aresta.Origem.Id);
+                    if (!todosVertices.Any(v => v.Id == aresta.Origem.Id))
+                        todosVertices.Add(aresta.Origem);
+                }
+                if (aresta.Destino != null)
+                {
+                    verticesUnicos.Add(aresta.Destino.Id);
+                    if (!todosVertices.Any(v => v.Id == aresta.Destino.Id))
+                        todosVertices.Add(aresta.Destino);
+                }
+            }
+            
+            return todosVertices;
         }
 
         /// <summary>
@@ -135,12 +167,15 @@ namespace Grafos.Classes.ListaAdjacencia
         /// <returns>Uma lista de vértices adjacentes.</returns>
         public List<Vertice> ObterVizinhanca(int idVertice)
         {
-            var vertice = ObterVertice(idVertice);
             var vizinhanca = new List<Vertice>();
 
-            foreach (var vizinho in Vertices[vertice.Id])
+            // Find neighbors by looking at edges where this vertex is the origin
+            foreach (var aresta in Arestas)
             {
-                vizinhanca.Add(vizinho);
+                if (aresta.Origem?.Id == idVertice && aresta.Destino != null)
+                {
+                    vizinhanca.Add(aresta.Destino);
+                }
             }
 
             return vizinhanca;

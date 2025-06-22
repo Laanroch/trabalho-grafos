@@ -108,6 +108,10 @@ namespace Grafos.LeitorSniper
                     linhaAtual++;
                     continue;
                 }
+                
+                // Reset ID counter for each instance
+                Vertice.ResetarId();
+                
                 var cab = linhas[linhaAtual++].Split();
                 int qtdV  = int.Parse(cab[0]);
                 int qtdA  = int.Parse(cab[1]);

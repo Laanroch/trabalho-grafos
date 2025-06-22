@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\aroch\\OneDrive\\Área de Trabalho\\TP_GRAFOS\\trabalho-grafos\\Grafos\\Grafos.csproj": {}
+    "\\\\wsl.localhost\\Ubuntu\\home\\ari\\developer\\trabalho-grafos\\Grafos\\Grafos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\aroch\\OneDrive\\Área de Trabalho\\TP_GRAFOS\\trabalho-grafos\\Grafos\\Grafos.csproj": {
+    "\\\\wsl.localhost\\Ubuntu\\home\\ari\\developer\\trabalho-grafos\\Grafos\\Grafos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\aroch\\OneDrive\\Área de Trabalho\\TP_GRAFOS\\trabalho-grafos\\Grafos\\Grafos.csproj",
+        "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\ari\\developer\\trabalho-grafos\\Grafos\\Grafos.csproj",
         "projectName": "Grafos",
-        "projectPath": "C:\\Users\\aroch\\OneDrive\\Área de Trabalho\\TP_GRAFOS\\trabalho-grafos\\Grafos\\Grafos.csproj",
-        "packagesPath": "C:\\Users\\aroch\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\aroch\\OneDrive\\Área de Trabalho\\TP_GRAFOS\\trabalho-grafos\\Grafos\\obj\\",
+        "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\ari\\developer\\trabalho-grafos\\Grafos\\Grafos.csproj",
+        "packagesPath": "C:\\Users\\arihe\\.nuget\\packages\\",
+        "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\ari\\developer\\trabalho-grafos\\Grafos\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\aroch\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\arihe\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -32,13 +32,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net7.0": {
@@ -83,7 +77,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }
