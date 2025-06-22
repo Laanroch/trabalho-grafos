@@ -11,6 +11,7 @@ namespace Grafos.Menus
                 Console.WriteLine("=== Menu Principal ===");
                 Console.WriteLine("1 - Criar novo grafo");
                 Console.WriteLine("2 - Obter grafo Dimac");
+                Console.WriteLine("3 - Desafio (Siege of Leningrad");
                 Console.WriteLine("0 - Sair");
                 Console.Write("\nEscolha uma opção: ");
 
@@ -26,6 +27,11 @@ namespace Grafos.Menus
                         case 2:
                             var menu2 = new Menu2();
                             menu2.ExecutarMenu();
+                            Console.Clear();
+                            break;
+                        case 3:
+                            var menu3 = new Menu3();
+                            menu3.ExecutarMenu();
                             Console.Clear();
                             break;
                         case 0:
