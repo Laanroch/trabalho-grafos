@@ -18,6 +18,7 @@ namespace Grafos.Menus
             try
             {
                 var instancias = LeitorSniper.LeitorSniper.LerTodasInstancias(path);
+                Console.WriteLine(instancias);
                 int caso = 1;
                 foreach (var instancia in instancias)
                 {
