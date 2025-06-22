@@ -1,79 +1,44 @@
-﻿// =============================
-// Arquivo: Menu3.cs
-// =============================
-
+using System;
 using Grafos.LeitorSniper;
 using Grafos.Algoritmos;
 using Grafos.Utils;
-using System.Globalization;
+using System.Collections.Generic;
 
 namespace Grafos.Menus
 {
     public class Menu3
     {
-        public void ExecutarMenu()
+        public static void Exibir()
         {
-            int opcao;
-            do
-            {
-                Console.Clear();
-                Console.WriteLine("=== Menu 3: Desafio dos Snipers ===");
-                Console.WriteLine("1 - Carregar instância do desafio");
-                Console.WriteLine("0 - Voltar ao menu principal");
-                Console.Write("\nEscolha uma opção: ");
+            Console.Clear();
+            Console.WriteLine("==== Menu 3: Caminho com Menor Número de Snipers ====");
+            Console.Write("Digite o caminho do arquivo de entrada: ");
+            string path = Console.ReadLine();
 
-                if (int.TryParse(Console.ReadLine(), out opcao))
-                {
-                    switch (opcao)
-                    {
-                        case 1:
-                            ExecutarDesafio();
-                            break;
-                        case 0:
-                            Console.WriteLine("Voltando...");
-                            break;
-                        default:
-                            Console.WriteLine("Opção inválida!");
-                            break;
-                    }
-                }
-
-                if (opcao != 0)
-                {
-                    Console.WriteLine("\nPressione qualquer tecla para continuar...");
-                    Console.ReadKey();
-                }
-
-            } while (opcao != 0);
-        }
-
-        private void ExecutarDesafio()
-        {
             try
             {
-                Console.Write("\nDigite o caminho do arquivo da instância: ");
-                string path = Console.ReadLine() ?? string.Empty;
-
-                var instancia = LeitorSniper.LerArquivo(path);
-
-                int snipersNoCaminho = SniperDijkstra.CalcularSnipersNoCaminho(instancia);
-
-                double resultado;
-                if (snipersNoCaminho > instancia.Balas)
+                var instancia = LeitorSniper.LeitorSniper.LerArquivo(path);
+                int menorSnipers = DijkstraSniper.CalcularMenorSnipers(instancia, out List<int> caminho);
+                Console.WriteLine();
+                if (menorSnipers == int.MaxValue)
                 {
-                    resultado = 0.0;
+                    Console.WriteLine("Não existe caminho entre a origem e o destino.");
                 }
                 else
                 {
-                    resultado = Probabilidade.CalcularProbabilidadeSucesso(snipersNoCaminho, instancia.Balas, instancia.Probabilidade);
+                    Console.WriteLine($"Menor número de snipers no caminho: {menorSnipers}");
+                    Console.WriteLine($"Caminho: {string.Join(" -> ", caminho)}");
+                    double prob = Utils.Utils.CalcularProbabilidade(menorSnipers, instancia.Balas, instancia.Probabilidade);
+                    Console.WriteLine($"Probabilidade de sucesso: {prob:F3}");
                 }
-
-                Console.WriteLine($"\nProbabilidade de sucesso: {resultado.ToString("F3", CultureInfo.InvariantCulture)}");
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"\nErro ao executar desafio: {ex.Message}");
+                Console.WriteLine($"Erro ao processar o arquivo: {ex.Message}");
             }
+
+            Console.WriteLine("\nPressione qualquer tecla para voltar ao menu principal...");
+            Console.ReadKey();
         }
     }
 }
