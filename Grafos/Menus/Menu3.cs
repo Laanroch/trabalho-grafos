@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Grafos.LeitorSniper;
 using Grafos.Algoritmos;
 using Grafos.Utils;
@@ -17,19 +17,23 @@ namespace Grafos.Menus
 
             try
             {
-                var instancia = LeitorSniper.LeitorSniper.LerArquivo(path);
-                int menorSnipers = DijkstraSniper.CalcularMenorSnipers(instancia, out List<int> caminho);
-                Console.WriteLine();
-                if (menorSnipers == int.MaxValue)
+                var instancias = LeitorSniper.LeitorSniper.LerTodasInstancias(path);
+                int caso = 1;
+                foreach (var instancia in instancias)
                 {
-                    Console.WriteLine("Não existe caminho entre a origem e o destino.");
-                }
-                else
-                {
-                    Console.WriteLine($"Menor número de snipers no caminho: {menorSnipers}");
-                    Console.WriteLine($"Caminho: {string.Join(" -> ", caminho)}");
-                    double prob = Utils.Utils.CalcularProbabilidade(menorSnipers, instancia.Balas, instancia.Probabilidade);
-                    Console.WriteLine($"Probabilidade de sucesso: {prob:F3}");
+                    int menorSnipers = DijkstraSniper.CalcularMenorSnipers(instancia, out List<int> caminho);
+                    Console.WriteLine($"\nInstância {caso++}:");
+                    if (menorSnipers == int.MaxValue)
+                    {
+                        Console.WriteLine("Não existe caminho entre a origem e o destino.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Menor número de snipers no caminho: {menorSnipers}");
+                        Console.WriteLine($"Caminho: {string.Join(" -> ", caminho)}");
+                        double prob = Utils.Utils.CalcularProbabilidade(menorSnipers, instancia.Balas, instancia.Probabilidade);
+                        Console.WriteLine($"Probabilidade de sucesso: {prob:F3}");
+                    }
                 }
             }
             catch (Exception ex)

@@ -386,26 +386,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\leobr\\.nuget\\packages\\": {}
+    "C:\\Users\\aroch\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leobr\\Desktop\\Onxa\\Grafos\\Grafos.csproj",
+      "projectUniqueName": "C:\\Users\\aroch\\OneDrive\\Área de Trabalho\\TP_GRAFOS\\trabalho-grafos\\Grafos\\Grafos.csproj",
       "projectName": "Grafos",
-      "projectPath": "C:\\Users\\leobr\\Desktop\\Onxa\\Grafos\\Grafos.csproj",
-      "packagesPath": "C:\\Users\\leobr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leobr\\Desktop\\Onxa\\Grafos\\obj\\",
+      "projectPath": "C:\\Users\\aroch\\OneDrive\\Área de Trabalho\\TP_GRAFOS\\trabalho-grafos\\Grafos\\Grafos.csproj",
+      "packagesPath": "C:\\Users\\aroch\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aroch\\OneDrive\\Área de Trabalho\\TP_GRAFOS\\trabalho-grafos\\Grafos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\leobr\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\aroch\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
